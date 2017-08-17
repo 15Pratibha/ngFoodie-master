@@ -14,16 +14,16 @@ foodieApp.config(function ($routeProvider) {
 		controller: 'restaurantController'
 	})
 
-})
-foodieApp.controller('loginController',function($scope,$location)
+});
+foodieApp.controller('loginController',function($scope)
 {
   $scope.goToHome= function() {
   		console.log('Do Something')
       $location.url('home');
   	}
 
-})
-foodieApp.controller('mainController',function($scope){
+});
+foodieApp.controller('mainController',function($scope,$routeParams){
   $scope.restaurants = [{
     id:1,
   	name: 'Farzi Cafe',
@@ -34,11 +34,11 @@ foodieApp.controller('mainController',function($scope){
   	cuisines: 'Modern Indian',
   	cost: '2200',
   	hours: '12 Noon to 1 AM (Mon-Sun)',
-  	image: 'https://b.zmtcdn.com/data/pictures/chains/2/308022/dabd30bd0b000ea859ada9a08a0132fc.jpg'
+  	image: 'https://b.zmtcdn.com/data/pictures/chains/2/308022/dabd30bd0b000ea859ada9a08a0132fc.jpg',
 		bestDish: {
 			name: 'Corn Pizza',
 			image: 'http://noblepig.com/images/2016/06/Avocado-and-Three-Bean-Salad-is-perfect-for-a-summertime-barbecue-side-dish.JPG'
-		},
+		}
   },
   {
     id:2,
@@ -54,7 +54,7 @@ image: 'http://i.huffpost.com/gadgets/slideshows/433830/slide_433830_5660694_fre
 bestDish: {
 	name: 'Bacon wrap',
 	image: 'http://i.huffpost.com/gadgets/slideshows/433830/slide_433830_5660694_free.jpg'
-},
+}
   },
   {
     id:3,
@@ -70,7 +70,7 @@ image: 'https://khaopeeyo.files.wordpress.com/2012/01/paneer-tikka-recipe-pictur
 bestDish: {
 	name: 'Paneer Tikka,',
 	image: 'https://khaopeeyo.files.wordpress.com/2012/01/paneer-tikka-recipe-picture.jpeg'
-},
+}
   },
   { id:4,
 		name: 'Barbeque Nation',
@@ -85,7 +85,7 @@ image: 'http://www.pioneerchef.com/wp-content/uploads/2015/01/SeaFood..jpg',
 bestDish: {
 	name: 'Sea Food',
 	image: 'http://www.pioneerchef.com/wp-content/uploads/2015/01/SeaFood..jpg'
-},
+}
   },
   {
     id:5,
@@ -100,7 +100,7 @@ hours: ' 11 AM to 11 PM (Mon-Sun)',
 image: 'https://i0.wp.com/files.hungryforever.com/wp-content/uploads/2017/05/09195434/feature-image-soya-chaap.jpg?w=1269&strip=all&quality=80',
   }
 ]
-})
+});
 foodieApp.controller('restaurantController',function($scope,$routeParams,$http){
   $scope.restaurantId = $routeParams.id;
   var restaurants =[{
@@ -148,8 +148,7 @@ bestDish: {
 	image: 'https://khaopeeyo.files.wordpress.com/2012/01/paneer-tikka-recipe-picture.jpeg'
 },
   },
-  {
-		{
+	{
 name: 'Barbeque Nation',
 address: 'SCO 39, Madhya Marg, Sector 26, Dehradoon',
 location: 'Sector-26',
